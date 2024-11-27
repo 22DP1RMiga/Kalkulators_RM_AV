@@ -1,0 +1,15 @@
+.zero {
+    width: 50px;
+}
+
+.nineNUMS {
+    height: 50px;
+    background-color: red;
+}
+
+.centeredCalc {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    height: 100vh; 
+}
