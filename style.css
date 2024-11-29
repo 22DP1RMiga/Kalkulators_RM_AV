@@ -74,3 +74,26 @@ button:active, button:focus {
     background: #a6a6a6;
     color: #000000;
 }
+
+/* For history stuff */
+.history {
+    margin-top: 20px;
+    padding: 10px;
+    background: #1a1a1a;
+    border-radius: 10px;
+    display: none; /* Hide history initially */
+}
+
+.history-toggle {
+    margin-top: 10px;
+    padding: 10px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.history-toggle:hover {
+    background: #555;
+}
