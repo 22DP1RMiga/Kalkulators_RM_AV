@@ -1,38 +1,40 @@
 const inputValue = document.getElementById("user-input");
 
-const number = document.querySelectorAll(".numbers").forEach(function (item) {
+// Function to calculate the result
+function calculate(expression) {
+    try {
+        return eval(expression); // Simple evaluation for arithmetic expressions
+    } catch {
+        return "Error"; // Return "Error" for invalid expressions
+    }
+}
+
+// Handle number buttons
+document.querySelectorAll(".numbers").forEach(function (item) {
     item.addEventListener("click", function (e) {
-        if (inputValue.innerText === "NaN") {
+        if (inputValue.innerText === "NaN" || inputValue.innerText === "0") {
             inputValue.innerText = "";
         }
-        if (inputValue.innerText === "0") {
-            inputValue.innerText = "";
-      }
-      inputValue.innerText += e.target.innerHTML.trim();
+        inputValue.innerText += e.target.innerHTML.trim();
     });
 });
 
-const calculate = document
-  .querySelectorAll(".operations")
-  .forEach(function (item) {
+// Handle operations
+document.querySelectorAll(".operations").forEach(function (item) {
     item.addEventListener("click", function (e) {
-      console.log(e.target.innerHTML);
+        const operation = e.target.innerHTML.trim();
+        let lastValue = inputValue.innerText.slice(-1);
+
+        if (operation === "=") {
+            // Use the calculate() function to get the result
+            inputValue.innerText = calculate(inputValue.innerText);
+        } else if (operation === "AC") {
+            inputValue.innerText = "0";
+        } else if (operation === "DEL") {
+            inputValue.innerText = inputValue.innerText.slice(0, -1) || "0";
+        } else if (!isNaN(lastValue) || (lastValue !== operation && operation !== "=")) {
+            // Avoid adding multiple operators in sequence
+            inputValue.innerText += operation;
+        }
     });
-  });
-
-  let lastValue = inputValue.innerText.substring(inputValue.innerText.length, inputValue.innerText.length - 1);
-
-if (!isNaN(lastValue) && e.target.innerHTML === "=") {
-      inputValue.innerText = eval(inputValue.innerText);
-  } else if (e.target.innerHTML === "AC") {
-      inputValue.innerText = 0;
-  } else if (e.target.innerHTML === "DEL") {
-      inputValue.innerText = inputValue.innerText.substring(0,inputValue.innerText.length - 1);
-      if (inputValue.innerText.length == 0) {
-          inputValue.innerText = 0;
-      }
-  } else {
-      if (!isNaN(lastValue)) {
-          inputValue.innerText += e.target.innerHTML;
-      }
-}
+});
