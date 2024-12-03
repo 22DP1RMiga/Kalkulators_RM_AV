@@ -1,3 +1,4 @@
+// Variables for handling inputs, history and toggle effects
 const inputValue = document.getElementById("user-input");
 const historyList = document.getElementById("history-list");
 const clearHistoryButton = document.getElementById("clear-history");
