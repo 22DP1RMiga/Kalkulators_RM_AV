@@ -6,24 +6,54 @@
 }
 
 body {
-    background-image: url("https://images.unsplash.com/photo-1711062717294-8902df8cebe3?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGJsYWNrYm9hcmR8ZW58MHx8MHx8fDA%3D");
+    background-image: url("https://wallpaperxyz.com/wp-content/uploads/Gif-Animated-Wallpaper-Background-Full-HD-Free-Download-for-PC-Macbook-261121-Wallpaperxyz.com-13.gif");
     background-size: 100%;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
-  
-.container {
-    background: #000000;
+
+.calc-header {
+    display: flex;
+    align-items: center;
+    font-family: "Courier New", monospace;
+    font-size: 100px;
+    color: rgb(87, 129, 236);
+    
+    /* for the text outline */
+    text-shadow:
+        -3px -3px 0 black, /* Top-left */
+        3px -3px 0 black,  /* Top-right */
+        -3px 3px 0 black,  /* Bottom-left */
+        3px 3px 0 black;   /* Bottom-right */
+}
+
+.calculator-box {
+    background: white;
     padding: 25px;
-    width: 350px;
+    width: 750px;
+    height: auto;
+    border-radius: 15px;
+    
+}
+
+.container {
+    background: #1a1b24;
+    padding: 25px;
+    width: 700px;
     border-radius: 10px;
+    outline: 3px solid black;
 }
 
 .calc-text {
     margin-bottom: 20px;
     padding-left: 5px;
+    padding: 15px;
+    border-radius: 10px;
+    background: linear-gradient(to top, #161616, #393939);
+    outline: 2px solid rgb(123, 122, 122);
 }
   
 .calc-text p {
@@ -39,16 +69,21 @@ body {
 }
 
 button {
-    background: #333333;
+    background: linear-gradient(to top, #2b2c34, #4a4b58);
     color: #fff;
     font-size: 1.5rem;
     border: none;
-    border-radius: 70%;
+    border-radius: 10px;
     cursor: pointer;
     height: 65px;
-    width: 65px;
+    width: 155px;
+    outline: 2px solid black;
 }
-  
+
+button:hover {
+    background: linear-gradient(to top, #19191e, #33343d); 
+}
+
 button:active, button:focus {
     filter: brightness(120%);
 }
@@ -63,15 +98,24 @@ button:active, button:focus {
 .key-zero {
     grid-column: span 2;
     width: 100%;
-    border-radius: 30px;
+    border-radius: 10px;
 }
   
 .key-operate {
-    background: #ff9501;
+    background: linear-gradient(to top, #a86302, #ff9501);
+}
+
+.key-operate:hover {
+    background: linear-gradient(to top, #874f01, #b16802);
 }
   
 .key-others {
-    background: #a6a6a6;
+    background: linear-gradient(to top, #747474, #d6d6d6);
+    color: #000000;
+}
+
+.key-others:hover {
+    background: linear-gradient(to top, #565656, #a5a5a5);
     color: #000000;
 }
 
@@ -81,13 +125,14 @@ button:active, button:focus {
     padding: 10px;
     background: #1a1a1a;
     border-radius: 10px;
-    display: none; /* Hide history initially */
+    display: none; /* Hide history initially */    
 }
 
 .history-toggle {
     margin-top: 10px;
     padding: 10px;
     background: #823535;
+    background: linear-gradient(to top, #612828, #a14242);
     color: white;
     border: none;
     border-radius: 5px;
@@ -97,11 +142,12 @@ button:active, button:focus {
 }
 
 .history-toggle:hover {
-    background: #b45757;
+    background: linear-gradient(to top, #481e1e, #803535);
 }
 
 .histtext {
     color: yellow;
+    font-family: "Courier New", monospace;
 }
 
 .clearhistory {
