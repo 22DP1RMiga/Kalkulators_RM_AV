@@ -2,7 +2,7 @@
 
 What is seen here is a calculator that keeps a track of history after every calculation the user will have done:
 
-![Bilde1](img1.png)
+![Bilde1](img1.PNG)
 Good luck, have fun!
 
 ---
