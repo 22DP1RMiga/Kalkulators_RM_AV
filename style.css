@@ -87,13 +87,34 @@ button:active, button:focus {
 .history-toggle {
     margin-top: 10px;
     padding: 10px;
-    background: #333;
+    background: #823535;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    grid-column: span 2;
+    width: 100%;
 }
 
 .history-toggle:hover {
-    background: #555;
+    background: #b45757;
+}
+
+.histtext {
+    color: yellow;
+}
+
+.clearhistory {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.renderedtext {
+    color: white;
+    padding-left: 10px;
+}
+
+.clear_x {
+    width: 30px;
+    height: 30px;
 }

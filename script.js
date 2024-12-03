@@ -40,7 +40,7 @@ function renderHistory() {
         const listItem = document.createElement("li");
         listItem.innerHTML = `
             <span>${entry.expression} = ${entry.result}</span>
-            <button onclick="deleteHistory(${index})">X</button>
+            <button onclick="deleteHistory(${index})" class="clear_x">x</button>
         `;
         historyList.appendChild(listItem);
     });
