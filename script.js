@@ -13,9 +13,18 @@ function updateDisplay(value) {
 }
 
 // Function to calculate and manage history
+// Function to calculate and manage history
+// Function to calculate and manage history
 function calculate(expression) {
     try {
-        const result = eval(expression);
+        // Replace percentages (e.g., 50%) with their calculated value
+        const processedExpression = expression.replace(/(\d+)\s*-\s*(\d+)%/g, (match, base, percent) => {
+            return `${base} - (${base} * ${percent} / 100)`;
+        }).replace(/(\d+)\s*\+\s*(\d+)%/g, (match, base, percent) => {
+            return `${base} + (${base} * ${percent} / 100)`;
+        });
+
+        const result = eval(processedExpression);
         if (!isNaN(result)) {
             addHistory(expression, result);
             return result;
@@ -25,6 +34,7 @@ function calculate(expression) {
         return "Error";
     }
 }
+
 
 // Function to add to history
 function addHistory(expression, result) {
