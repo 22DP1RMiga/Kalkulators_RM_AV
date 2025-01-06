@@ -95,8 +95,24 @@ button:active, button:focus {
     grid-row-gap: 15px;
     grid-column-gap: 10px;
 }
-  
+
+.key-others.operations {
+    background: linear-gradient(to top, #747474, #d6d6d6);
+    color: #000;
+}
+
+.key-others.operations:hover {
+    background: linear-gradient(to top, #565656, #a5a5a5);
+}
+
+
 .key-zero {
+    grid-column: span 2;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.brackets {
     grid-column: span 2;
     width: 100%;
     border-radius: 10px;
@@ -159,9 +175,36 @@ button:active, button:focus {
 .renderedtext {
     color: white;
     padding-left: 10px;
+    list-style: none; /* Remove bullet points */
+    margin: 0;
+    padding: 0;
+}
+
+.renderedtext li {
+    display: flex; /* Use flexbox to align content */
+    justify-content: space-between; /* Push X button to the right */
+    align-items: center; /* Center vertically */
+    padding: 5px 0; /* Add spacing between list items */
+    border-bottom: 1px solid #333; /* Optional: Separator for each item */
+}
+
+.renderedtext li span {
+    flex-grow: 1; /* Allow the text to take up the remaining space */
+    margin-right: 10px; /* Add space between text and button */
+    text-align: left; /* Ensure text aligns properly */
 }
 
 .clear_x {
     width: 30px;
     height: 30px;
+    text-align: center;
+    background: #612828;
+    border: none;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.clear_x:hover {
+    background: #481e1e;
 }
