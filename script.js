@@ -92,11 +92,44 @@ document.querySelectorAll(".operations").forEach(item => {
             updateDisplay("0");
         } else if (operation === "DEL") {
             updateDisplay(currentValue.slice(0, -1) || "0");
+        } else if (operation === "(") {
+            // Replace initial "0" with "(" if it's the first character
+            if (currentValue === "0") {
+                updateDisplay("(");
+            } else {
+                inputValue.innerText += operation;
+            }
+        } else if (operation === ")") {
+            inputValue.innerText += operation;
         } else if (!isNaN(currentValue.slice(-1)) || currentValue.slice(-1) !== operation) {
             inputValue.innerText += operation;
         }
     });
 });
+
+
+// Updated calculate function to handle brackets
+function calculate(expression) {
+    try {
+        // Replace percentages first (e.g., 50% => 50 * 0.01)
+        const processedExpression = expression.replace(/(\d+)\s*-\s*(\d+)%/g, (match, base, percent) => {
+            return `${base} - (${base} * ${percent} / 100)`;
+        }).replace(/(\d+)\s*\+\s*(\d+)%/g, (match, base, percent) => {
+            return `${base} + (${base} * ${percent} / 100)`;
+        });
+
+        // Evaluate the expression with brackets
+        const result = eval(processedExpression);
+        if (!isNaN(result)) {
+            addHistory(expression, result);
+            return result;
+        }
+        return "Error";
+    } catch {
+        return "Error";
+    }
+}
+
 
 // Clear history button event
 clearHistoryButton.addEventListener("click", clearHistory);
